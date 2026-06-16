@@ -8,10 +8,10 @@ export default function ProblemOutcome() {
   const isInView = useInView(ref, { once: true, margin: "-80px" });
   const shouldReduceMotion = useReducedMotion();
 
-  const reveal = (direction: "left" | "right") => ({
+const reveal = (direction: "left" | "right"): HTMLMotionProps<"div"> => ({
     initial: shouldReduceMotion ? {} : { opacity: 0, x: direction === "left" ? -40 : 40 },
     animate: isInView ? { opacity: 1, x: 0 } : {},
-    transition: { duration: 0.65, ease: [0.25, 0.1, 0.25, 1] as const },
+    transition: { duration: 0.65, ease: [0.25, 0.1, 0.25, 1] },
   });
 
   return (
