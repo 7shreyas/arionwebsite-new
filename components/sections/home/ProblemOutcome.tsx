@@ -11,7 +11,7 @@ export default function ProblemOutcome() {
   const reveal = (direction: "left" | "right") => ({
     initial: shouldReduceMotion ? {} : { opacity: 0, x: direction === "left" ? -40 : 40 },
     animate: isInView ? { opacity: 1, x: 0 } : {},
-    transition: { duration: 0.65, ease: [0.25, 0.1, 0.25, 1] },
+    transition: { duration: 0.65, ease: [0.25, 0.1, 0.25, 1] as const },
   });
 
   return (
